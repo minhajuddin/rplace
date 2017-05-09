@@ -1,1 +1,9 @@
 /* This file is for your main application css. */
+
+body { margin: 0; padding: 0; border: 0; }
+
+#canvas {
+  width: 1000px;
+  height: 1000px;
+  border: solid 1px #222;
+}
