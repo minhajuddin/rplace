@@ -1,7 +1,6 @@
 (function() {
   var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
-    lines = [],
     currentLine = [];
 
   window.lines = lines;
@@ -17,11 +16,16 @@
 
   // start drawing line
   function startLine(e) {
+    canvas.addEventListener('mousemove', drawLine, false);
+
     var point = pointForEvent(e);
     ctx.beginPath();
     ctx.moveTo(point.x, point.y);
     currentLine = [];
-    lines.push(currentLine);
+  }
+
+  function endLine(e) {
+    canvas.removeEventListener('mousemove', drawLine, false);
   }
 
   // draws line to this x, y coordinate
@@ -39,13 +43,8 @@
     }
   }
 
-  canvas.addEventListener('mousedown', function(e) {
-    startLine(e)
-    canvas.addEventListener('mousemove', drawLine, false);
-  }, false);
-
-  canvas.addEventListener('mouseup', function() {
-    canvas.removeEventListener('mousemove', drawLine, false);
-  }, false);
+  canvas.addEventListener('mousedown', startLine, false);
+  canvas.addEventListener('mouseup', endLine, false);
 
 })()
+
