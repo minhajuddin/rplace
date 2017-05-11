@@ -1,0 +1,16 @@
+session "rplace"
+directory "/home/minhajuddin/r/rplace"
+
+window "src", [
+  pane("vim TODO"),
+]
+
+window "server-iex", [
+  pane("iex -S mix phoenix.server"),
+]
+
+window "play", [
+  pane("git status", :vertical),
+]
+
+# vim: filetype=ruby

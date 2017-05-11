@@ -1,8 +1,8 @@
 defmodule Rplace.Web.UserSocket do
   use Phoenix.Socket
 
-  ## Channels
-  # channel "room:*", Rplace.Web.RoomChannel
+  # Channels
+  channel "canvas:*", Rplace.Web.CanvasChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
